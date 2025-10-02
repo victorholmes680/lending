@@ -1,5 +1,6 @@
 use anchor_lang::prelude::*;
 use instructions::*;
+mod constant;
 mod error;
 mod instructions;
 mod state;
@@ -23,5 +24,13 @@ pub mod lending {
 
     pub fn deposit(ctx: Context<Deposit>, amount: u64) -> Result<()> {
         process_deposit(ctx, amount)
+    }
+
+    pub fn withdraw(ctx: Context<Withdraw>, amount: u64) -> Result<()> {
+        process_withdraw(ctx, amount)
+    }
+
+    pub fn borrow(ctx: Context<Borrow>, amount: u64) -> Result<()> {
+        process_borrow(ctx, amount)
     }
 }
